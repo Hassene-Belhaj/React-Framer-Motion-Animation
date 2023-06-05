@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+body {
+  scroll-behavior: smooth;
+
 }
 `
 
@@ -18,6 +23,8 @@ height: 100vh;
 background: #d5d5d5;
 overflow: hidden;
 display: flex;
+justify-content: center;
+align-items: center;
 /* justify-content: center; */
 `
 
@@ -28,8 +35,8 @@ const App = () => {
   <Container>
     <GlobalStyle />
   <BoxOne />
-  <BoxTwo />
-  <BoxThree />
+  {/* <BoxTwo />
+  <BoxThree /> */}
   </Container>
     )
 }
