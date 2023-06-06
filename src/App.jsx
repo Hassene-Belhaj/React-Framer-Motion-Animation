@@ -20,7 +20,7 @@ body {
 const Container = styled.div`
 width: 100%;
 height: 100vh;
-background: #d5d5d5;
+background: #FFF;
 overflow: hidden;
 display: flex;
 justify-content: center;
