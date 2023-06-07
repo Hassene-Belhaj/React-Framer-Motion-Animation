@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Kanit', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 body {
   scroll-behavior: smooth;
@@ -21,10 +22,7 @@ const Container = styled.div`
 width: 100%;
 height: 100vh;
 background: #FFF;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
+overflow-x: hidden;
 /* justify-content: center; */
 `
 
@@ -35,8 +33,9 @@ const App = () => {
   <Container>
     <GlobalStyle />
   <BoxOne />
-  {/* <BoxTwo />
-  <BoxThree /> */}
+  <BoxTwo />
+
+
   </Container>
     )
 }

@@ -7,28 +7,35 @@ const Container = styled.div`
 width: 100%;
 height: 100vh;
 display: flex;
+flex-wrap: wrap;
 justify-content: center;
+align-items: center;
+margin: auto;
+background:#fff;
 position: relative;
 z-index: 10;
 `
-const LeavesDiv = styled.div`
-position: absolute;
-inset: 0;
-width: auto;
-height: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-z-index:0 ;
+const BannerDiv = styled.div`
+padding-top: 1rem ;
+width: 100%;
+height: 10rem;
+display: block;
+margin-bottom: 5rem;
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
 `
 
 const ImageDiv = styled.div`
 width: 30rem;
 height: 30rem;
-padding-top: 3rem;
 background: transparent;
 display: flex;
 justify-content: center;
+align-items: center;
+
 z-index: 1;
 img{
     max-width: 80%;
@@ -45,20 +52,23 @@ justify-content: center;
 align-items: center;
 
 h2{
-    padding-top : 15rem ;
+    padding-top : 5rem ;
     font-style: italic;
     font-size: 10rem;
     color:rgb(239,135,0);
     text-transform: capitalize;
     letter-spacing: 0.3rem;
-    text-shadow: 2px 2px 2px rgb(123,40,36);
+    text-shadow: 2px 2px 2px gray;
     transform:rotate(-5deg);
 }
 `
 
-
 const BoxOne = () => {
- const [isAnimating,setIsAnimating] = useState(false)
+
+
+const [isAnimating,setIsAnimating] = useState(false)
+
+
 
 const VariantItem = {
     hidden : {
@@ -80,31 +90,41 @@ const VariantItem2 = {
         opacity : 1 ,
         x: 0 ,
         transition : {
+            delay : 0.4 ,
             duration :  1.5
         }
     }
 }
 
-
-
- 
  return (
 <Container>
-    <motion.div
+    <BannerDiv>
+        <motion.img  
+        initial={{opacity : 0.1}}
+        animate={{
+            opacity : 1 ,
+            transition : {
+                duration : 2 ,
+            }
+        }}
+        src="full.webp" alt="" />
+    </BannerDiv>
+
+    {/* <motion.div
      initial="hidden"
      animate="visible"
      variants={VariantItem}
     >
         <Main><h2>Juice Burst</h2></Main>
-    </motion.div>
+    </motion.div> */}
 
     <motion.div
         initial="hidden"
         animate="visible"
         variants={VariantItem2}
     >
-        <ImageDiv>
-            <motion.img 
+    <ImageDiv>
+      <motion.img 
         initial={{
         opacity : 1 ,
         y : -15,
