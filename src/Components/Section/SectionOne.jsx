@@ -123,25 +123,25 @@ const VariantItem = {
         >
     <ImageDiv>
       <motion.img 
-        initial={{
-        opacity : 1 ,
-        y : -10,
-        }}
-        animate={{
-            y : 10 ,
-            opacity : 1 ,
-            // rotate : 360,    
-            // backgroundColor : "orange" , 
-        }}
-        transition={{
-            type : 'tween' ,
-            delay : 2 ,
-            duration : 1 ,
-            // type :'spring' ,
-            // stiffness : 60 ,
-            repeat : Infinity,
-            repeatType: "reverse",
-        }}
+        // initial={{
+        // opacity : 1 ,
+        // y : -10,
+        // }}
+        // animate={{
+        //     y : 10 ,
+        //     opacity : 1 ,
+        //     // rotate : 360,    
+        //     // backgroundColor : "orange" , 
+        // }}
+        // transition={{
+        //     type : 'tween' ,
+        //     delay : 2 ,
+        //     duration : 1 ,
+        //     // type :'spring' ,
+        //     // stiffness : 60 ,
+        //     repeat : Infinity,
+        //     repeatType: "reverse",
+        // }}
         
         src="orange4.webp" alt="" />
         </ImageDiv>
