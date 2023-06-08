@@ -10,7 +10,6 @@ const Header = styled.div`
   width: 100%;
   overflow: hidden;
   background: #fff;
-  margin-top: 5rem;
 `
 
 const BannerDiv = styled.div`
@@ -33,13 +32,7 @@ const Title = styled(motion.h1)`
   margin: auto;
 `
 
-const SectionDiv = styled.div`
-  height: 80vh;
-  overflow: hidden;
-  padding: 10em 0;
-  color: white;
-  background: #fff;
-`;
+
 
 
 
@@ -56,7 +49,6 @@ const SectionTwo = () => {
          <Title style={{x : width }}> &bull; &nbsp; NO-NONSENSE JUICE &nbsp; &bull;&nbsp; NO-NONSENSE JUICE &nbsp; &bull;&nbsp; NO-NONSENSE JUICE &nbsp;</Title>
         </BannerDiv>
       </Header>
-      <SectionDiv></SectionDiv>
     </>
   );
 };

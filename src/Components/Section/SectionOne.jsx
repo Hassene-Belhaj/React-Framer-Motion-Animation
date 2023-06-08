@@ -6,10 +6,9 @@ import { styled } from 'styled-components'
 const Container = styled.div`
 width: 100%;
 height: 100vh;
-/* flex-wrap: wrap; */
 justify-content: center;
 align-items: center;
-margin: auto;
+margin: 5rem auto;
 background:#fff;
 position: relative;
 z-index: 10;
@@ -32,12 +31,13 @@ width: 50%;
 height: 80%;
 display: flex;
 flex-direction: column;
+line-height: 2rem;
 h3{
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 p{
-    font-size:1.2rem ;
+    font-size:1.5rem ;
 }
 `
 const RightCol = styled.div`
@@ -45,9 +45,11 @@ width: 50%;
 height: 100%;
 display: flex;
 justify-content: center;
+border-radius: 5px;
 img{
-    max-width: 80%;
-    
+    width: 600px;
+    height: 700px;
+    border-radius: 5px;
     object-fit: cover;
 
 }
@@ -75,7 +77,7 @@ justify-content: center;
 align-items: center;
 z-index: 1;
 img{
-    max-width: 80%;
+    width: 90%;
     object-fit: cover;
 }
 `
