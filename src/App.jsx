@@ -1,7 +1,8 @@
-import React from 'react'
-import BoxOne from './Components/BoxOne/BoxOne'
-import BoxTwo from './Components/BoxTwo/BoxTwo'
+import React from 'react' 
 import { createGlobalStyle, styled } from 'styled-components'
+import SectionOne from './Components/Section/SectionOne'
+import SectionTwo from './Components/Section/SectionTwo'
+import SectionThree from './Components/Section/SectionThree'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -30,12 +31,13 @@ overflow-x: hidden;
 
 const App = () => {
   return (
-  <Container>
-    <GlobalStyle />
-  <BoxOne />
-  <BoxTwo />
-
-</Container>
+  <>
+  <GlobalStyle />
+  <SectionOne />
+  <SectionThree />
+  <SectionTwo />
+</>
+  
   )
 }
 

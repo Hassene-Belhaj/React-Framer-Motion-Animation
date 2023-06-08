@@ -14,6 +14,7 @@ margin: auto;
 background:#fff;
 position: relative;
 z-index: 10;
+overflow: hidden;
 `
 const BannerDiv = styled.div`
 padding-top: 1rem ;
@@ -63,7 +64,7 @@ h2{
 }
 `
 
-const BoxOne = () => {
+const SectionOne = () => {
 
 
 const [isAnimating,setIsAnimating] = useState(false)
@@ -110,13 +111,13 @@ const VariantItem2 = {
         src="full.webp" alt="" />
     </BannerDiv>
 
-    {/* <motion.div
+    <motion.div
      initial="hidden"
      animate="visible"
      variants={VariantItem}
     >
         <Main><h2>Juice Burst</h2></Main>
-    </motion.div> */}
+    </motion.div>
 
     <motion.div
         initial="hidden"
@@ -152,4 +153,4 @@ const VariantItem2 = {
   )
 }
 
-export default BoxOne
+export default SectionOne
