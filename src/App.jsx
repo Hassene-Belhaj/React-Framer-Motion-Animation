@@ -1,8 +1,8 @@
 import React from 'react'
 import BoxOne from './Components/BoxOne/BoxOne'
 import BoxTwo from './Components/BoxTwo/BoxTwo'
-import BoxThree from './Components/BoxThree/BoxThree'
 import { createGlobalStyle, styled } from 'styled-components'
+
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -35,9 +35,8 @@ const App = () => {
   <BoxOne />
   <BoxTwo />
 
-
-  </Container>
-    )
+</Container>
+  )
 }
 
-export default App
+export default App 
