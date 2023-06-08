@@ -34,7 +34,7 @@ const App = () => {
   <>
   <GlobalStyle />
   <SectionOne />
-  <SectionThree />
+  {/* <SectionThree /> */}
   <SectionTwo />
 </>
   

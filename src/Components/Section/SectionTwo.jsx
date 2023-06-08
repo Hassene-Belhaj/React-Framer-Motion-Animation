@@ -6,10 +6,11 @@ import styled from "styled-components";
 
 
 const Header = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   background: #fff;
+  margin-top: 5rem;
 `
 
 const BannerDiv = styled.div`
@@ -28,7 +29,6 @@ const Title = styled(motion.h1)`
   white-space: nowrap;
   margin: 0;
   text-transform: uppercase;
-  margin-top: 4rem;
   transition: all 1s ease-in-out;
   margin: auto;
 `
