@@ -21,8 +21,6 @@ export const NavLinks1= [
     {link : "Shop"},
     {link : "The Daily Squeeze"},
     {link : "About Us"},
-    {link : "What's New?"},
-    {link : "Contact"},
 ]
 
 export const NavLinks2 = [

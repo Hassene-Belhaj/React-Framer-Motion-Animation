@@ -3,7 +3,7 @@ import { createGlobalStyle, styled } from 'styled-components'
 import SectionOne from './Components/Section/SectionOne'
 import SectionTwo from './Components/Section/SectionTwo'
 import SectionThree from './Components/Section/SectionThree'
-import { SliderData, TextBanner, TextBanner2 } from './Data/Data'
+import { NavLinks1, NavLinks2, SliderData, TextBanner, TextBanner2 } from './Data/Data'
 import Slider from './Components/Section/Slider'
 import Navbar from './Components/Navbar/Navbar'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -31,12 +31,12 @@ overflow-x: hidden;
 
 
 const App = () => {
+
   return (
 <Router>
-
  <Container>
   <GlobalStyle />
-  <Navbar />
+  <Navbar NavLinks1={NavLinks1} NavLinks2={NavLinks2} />
   <SectionOne />
   <SectionTwo TextBanner={TextBanner} />
   <SectionThree />
