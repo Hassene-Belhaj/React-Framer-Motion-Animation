@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect} from 'react'
 import { styled } from 'styled-components'
+import { motion ,useAnimation} from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 
 const Container = styled.div`
@@ -9,7 +10,6 @@ height: 100vh;
 justify-content: center;
 align-items: center;
 margin: 5rem auto;
-background:#fff;
 position: relative;
 z-index: 10;
 overflow: hidden;
@@ -37,7 +37,7 @@ h3{
     margin-bottom: 1rem;
 }
 p{
-    font-size:1.5rem ;
+    font-size:1.2rem ;
 }
 `
 const RightCol = styled.div`
@@ -75,36 +75,48 @@ background: transparent;
 display: flex;
 justify-content: center;
 align-items: center;
-z-index: 1;
+z-index: 10;
 img{
     width: 90%;
     object-fit: cover;
+    z-index: 20;
 }
 `
 
 const SectionOne = () => {
 
+const {ref,inView} =useInView()
 
-const [isAnimating,setIsAnimating] = useState(false)
+const animation = useAnimation()
 
 
-const VariantItem = {
-    hidden : {
-        x : "-100vw"
-    },
-    visible :{
-        x: 0 ,
-        transition : {
-            delay : 0.3 ,
-            duration :  1
-        }
+useEffect(()=>{
+    if(inView) {
+        animation.start("visible") ;
+    } else {
+       animation.start("hidden")
     }
-}
+
+},[inView])
+
+
+// const VariantItem = {
+//     hidden : {
+//         x : "-100vw"
+//     },
+//     visible :{
+//         x: 0 ,
+//         transition : {
+//             delay : 0.3 ,
+//             duration :  1
+//         }
+//     }
+// }
 
  return (
-<Container>
+<Container >
 
-    <BannerDiv>
+    <BannerDiv ref={ref}>
         <motion.img  
         initial={{opacity : 0.1}}
         animate={{
@@ -117,32 +129,35 @@ const VariantItem = {
     </BannerDiv>
 
     <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={VariantItem}
-        >
-    <ImageDiv>
-      <motion.img 
-        // initial={{
-        // opacity : 1 ,
-        // y : -10,
+        // variants={{
+        //     hidden :{y : -10 },
+        //     visible :{y : 10 }
         // }}
-        // animate={{
-        //     y : 10 ,
-        //     opacity : 1 ,
-        //     // rotate : 360,    
-        //     // backgroundColor : "orange" , 
-        // }}
+        // initial="hidden"
+        // animate={animation}
         // transition={{
-        //     type : 'tween' ,
-        //     delay : 2 ,
         //     duration : 1 ,
-        //     // type :'spring' ,
-        //     // stiffness : 60 ,
-        //     repeat : Infinity,
-        //     repeatType: "reverse",
+        //     delay : 0.2 ,
+        //     type : 'tween' ,
+        //     repeat : 6 ,
+        //     repeatType : 'reverse' ,
         // }}
-        
+        variants={{
+            hidden : { opacity : 0 , x : "-100%"} ,
+            visible : {opacity : 1 , x : "0" }  ,
+        }}
+        initial="hidden"
+        animate={animation}
+        transition={{
+            duration : 1    ,
+            delay : 0.2 ,
+            type : 'spring' ,
+            bounce : 0.2 ,
+      
+        }}
+        >
+    <ImageDiv >
+      <motion.img        
         src="orange4.webp" alt="" />
         </ImageDiv>
     </motion.div>

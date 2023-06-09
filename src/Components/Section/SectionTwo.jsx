@@ -30,13 +30,16 @@ const Title = styled(motion.h1)`
   text-transform: uppercase;
   transition: all 1s ease-in-out;
   margin: auto;
+  span {
+  opacity:0.5;
+  }
 `
 
 
 
 
 
-const SectionTwo = () => {
+const SectionTwo = ({TextBanner}) => {
   const ref  = useRef()  
   const { scrollYProgress } = useScroll()
   const width = useTransform(scrollYProgress, [0,1],[-900,900]);
@@ -46,7 +49,7 @@ const SectionTwo = () => {
     <>
       <Header ref={ref}>
         <BannerDiv>
-         <Title style={{x : width }}> &bull; &nbsp; NO-NONSENSE JUICE &nbsp; &bull;&nbsp; NO-NONSENSE JUICE &nbsp; &bull;&nbsp; NO-NONSENSE JUICE &nbsp;</Title>
+         <Title style={{x : width }}>  &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text}<span>&bull;</span> </Title>
         </BannerDiv>
       </Header>
     </>
