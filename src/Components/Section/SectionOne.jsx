@@ -9,7 +9,7 @@ width: 100%;
 height: 100vh;
 justify-content: center;
 align-items: center;
-margin: 5rem auto;
+margin: auto;
 position: relative;
 z-index: 10;
 overflow: hidden;

@@ -5,6 +5,8 @@ import SectionTwo from './Components/Section/SectionTwo'
 import SectionThree from './Components/Section/SectionThree'
 import { SliderData, TextBanner, TextBanner2 } from './Data/Data'
 import Slider from './Components/Section/Slider'
+import Navbar from './Components/Navbar/Navbar'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -30,14 +32,18 @@ overflow-x: hidden;
 
 const App = () => {
   return (
+<Router>
+
  <Container>
   <GlobalStyle />
+  <Navbar />
   <SectionOne />
   <SectionTwo TextBanner={TextBanner} />
   <SectionThree />
   <SectionTwo TextBanner={TextBanner2} />
   <Slider SliderData={SliderData}/>
 </Container>
+</Router>    
   
   )
 }

@@ -77,8 +77,8 @@ return () => clearTimeout(timeout)
 
 
 const nextSlide = () => {
-  const isLastSlide = index === SliderData.length - 1;
-  setIndex(isLastSlide ? 0 : index + 1)
+  const curr = index === SliderData.length - 1;
+  setIndex(curr ? 0 : index + 1)
 };
 
 
