@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { GoPrimitiveDot } from 'react-icons/go'
+import { motion ,useAnimate} from 'framer-motion'
 
 
 const Container = styled.div`
@@ -15,20 +16,29 @@ background: #F07D00;
 `
 
 const SlideDiv = styled.div`
-width: 40%;
+width: 100%;
 height : 100% ; 
+margin: auto;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-transition: all 1s ease-in-out;
+position: relative;
 
 h3{
   font-size: 2rem;
+  text-align: center;
 }
-
 `
+const DivText = styled(motion.div)`
+width: 800px;
+`
+
+
+
 const SlideDot = styled.div`
+position: absolute;
+margin-top: 10rem;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -52,7 +62,29 @@ const Dot =styled(GoPrimitiveDot)`
 
 
 const Slider = ({SliderData}) => {
+
   const [index,setIndex] = useState(0)
+
+useEffect(()=>{
+const timeout = setTimeout(() => {
+ nextSlide() 
+}, 2900); 
+return () => clearTimeout(timeout)
+
+},[index])
+
+
+
+
+const nextSlide = () => {
+  const isLastSlide = index === SliderData.length - 1;
+  setIndex(isLastSlide ? 0 : index + 1)
+};
+
+
+  
+
+
 
 const handleClick = (i) => {
 setIndex(i)
@@ -61,9 +93,24 @@ setIndex(i)
   return (
    <Container>
      <SlideDiv>
-      <h3>
-      {SliderData[index].text}
-      </h3>
+       <DivText
+          variants={{
+            hidden : { opacity : 0 , x : "100%"} ,
+            visible : {opacity : 1 , x : "0" }  ,
+        }}
+        initial='hidden'
+        animate='visible'
+        transition={{
+            type : 'spring' ,
+            bounce : 0.5 ,
+            duration : 2 ,
+            delay : 0.5,
+        }}       
+       
+       
+       >
+        <h3>{SliderData[index].text} </h3>
+       </DivText>
       <SlideDot>
       {SliderData.map((item,i)=>{
         return (
@@ -74,10 +121,12 @@ setIndex(i)
       })}
       </SlideDot>
       
-     </SlideDiv>
+      </SlideDiv>
     </Container>
 
     )
 }
 
 export default Slider
+
+
