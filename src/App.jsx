@@ -3,7 +3,7 @@ import { createGlobalStyle, styled } from 'styled-components'
 import SectionOne from './Components/Section/SectionOne'
 import SectionTwo from './Components/Section/SectionTwo'
 import SectionThree from './Components/Section/SectionThree'
-import { TextBanner, TextBanner2 } from './Data/Data'
+import { SliderData, TextBanner, TextBanner2 } from './Data/Data'
 import Slider from './Components/Section/Slider'
 
 const GlobalStyle = createGlobalStyle`
@@ -36,7 +36,7 @@ const App = () => {
   <SectionTwo TextBanner={TextBanner} />
   <SectionThree />
   <SectionTwo TextBanner={TextBanner2} />
-  <Slider />
+  <Slider SliderData={SliderData}/>
 </Container>
   
   )
