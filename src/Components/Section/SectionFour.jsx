@@ -35,8 +35,30 @@ height: auto;
 const LinkItem = styled(Link)`
 text-decoration: none;
 `
-
-
+const IconFB = styled(FaFacebook)`
+fill:#000;
+transition    :all 0.3s ease-in-out ;
+&:hover{
+fill :#F07D00 ;    
+transition    :all 0.3s ease-in-out ;
+}
+`
+const IconInsta = styled(FaInstagram)`
+fill:#000;
+transition    :all 0.3s ease-in-out ;
+&:hover{
+fill :#F07D00 ;    
+transition    :all 0.3s ease-in-out ;
+}
+`
+const IconTw = styled(FaTwitter)`
+fill:#000;
+transition    :all 0.3s ease-in-out ;
+&:hover{
+fill :#F07D00 ;    
+transition    :all 0.3s ease-in-out ;
+}
+`
 
 const SectionFour = () => {
   return (
@@ -44,14 +66,14 @@ const SectionFour = () => {
         <Div>
        <h4>STALK US ON SOCIAL</h4>
         <SociaIcons>
-            <LinkItem>
-                <FaFacebook  size={25} color='#000' />
+            <LinkItem to={'https://www.facebook.com/'} target="_blank">
+                <IconFB size={25} color='#000' />
             </LinkItem>
-            <LinkItem>
-          <FaInstagram style={{marginLeft:"2rem"}} size={25} color='#000'  />
+            <LinkItem to={'https://www.instagram.com/'} target="_blank">
+          <IconInsta style={{marginLeft:"2rem"}} size={25} color='#000'  />
             </LinkItem>
-          <LinkItem>
-            <FaTwitter style={{marginLeft:"2rem"}} size={25}  color='#000' />
+          <LinkItem to={'https://www.twitter.com/'} target="_blank">
+            <IconTw style={{marginLeft:"2rem"}} size={25}  color='#000' />
           </LinkItem>
 
         </SociaIcons>

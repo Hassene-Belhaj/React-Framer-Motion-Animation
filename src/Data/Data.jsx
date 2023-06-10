@@ -27,3 +27,14 @@ export const NavLinks2 = [
     {link : "What's New?"},
     {link : "Contact"},
 ]
+
+export const FooterbottomData = [
+
+    {text : "©Juice Burst™2023"},
+    {text : "Contact Us"},
+    {text: "Cookie Policy"},
+    {text: "Privacy Policy"},
+    {text: "Refund Policy"},
+    {text: "Terms of Service"},
+
+]
