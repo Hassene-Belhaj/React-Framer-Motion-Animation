@@ -11,8 +11,23 @@ height: 80vh;
 display: flex;
 justify-content: center;
 align-items: center;
-margin:0 auto 5rem auto;
+margin:0 auto 0 auto;
 background: #F07D00;
+position: relative;
+`
+
+const ThumbsUp = styled.div`
+position: absolute;
+top: 25%;
+left: 5rem;
+display: flex;
+width: auto;
+img{
+  max-width : 20%;
+  object-fit :cover ;
+}
+
+
 `
 
 const SlideDiv = styled.div`
@@ -73,15 +88,18 @@ return () => clearTimeout(timeout)
 
 },[index])
 
-
+console.log(SliderData.length);
 
 
 const nextSlide = () => {
-  const curr = index === SliderData.length - 1;
-  setIndex(curr ? 0 : index + 1)
-};
+const curr = index === SliderData.length -1 
+setIndex(curr ? 0 : index + 1)
+}
 
-
+// const prevslide = () => {
+//  const curr = index === 0
+//  setIndex(curr ? SliderData.length - 1 : index - 1) 
+// }
   
 
 
@@ -92,6 +110,9 @@ setIndex(i)
 
   return (
    <Container>
+    <ThumbsUp>
+      <img src="thumpsup.webp" alt="" />
+    </ThumbsUp>
      <SlideDiv>
        <DivText
           variants={{
@@ -106,8 +127,7 @@ setIndex(i)
             duration : 2 ,
             delay : 0.5,
         }}       
-       
-       
+          
        >
         <h3>{SliderData[index].text} </h3>
        </DivText>

@@ -7,6 +7,7 @@ import { NavLinks1, NavLinks2, SliderData, TextBanner, TextBanner2 } from './Dat
 import Slider from './Components/Section/Slider'
 import Navbar from './Components/Navbar/Navbar'
 import { BrowserRouter as Router } from 'react-router-dom'
+import SectionFour from './Components/Section/SectionFour'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -42,6 +43,7 @@ const App = () => {
   <SectionThree />
   <SectionTwo TextBanner={TextBanner2} />
   <Slider SliderData={SliderData}/>
+  <SectionFour />
 </Container>
 </Router>    
   

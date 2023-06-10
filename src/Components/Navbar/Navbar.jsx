@@ -127,17 +127,16 @@ const Navbar = ({NavLinks1,NavLinks2}) => {
           <FirstNav>
             {NavLinks1.map((item,key)=>{
                 return (
-                    <>
-                    <LinkItem key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem></>
+                    <LinkItem key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
                     )
                 })}
         </FirstNav>
        <SecondNav>
        {NavLinks2.map((item,key)=>{
            return (
-               <>
+              
                 <LinkItem  key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
-                </>
+               
                     )
                 })}
         </SecondNav>
