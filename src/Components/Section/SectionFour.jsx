@@ -37,26 +37,26 @@ text-decoration: none;
 `
 const IconFB = styled(FaFacebook)`
 fill:#000;
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 &:hover{
 fill :#F07D00 ;    
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 }
 `
 const IconInsta = styled(FaInstagram)`
 fill:#000;
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 &:hover{
 fill :#F07D00 ;    
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 }
 `
 const IconTw = styled(FaTwitter)`
 fill:#000;
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 &:hover{
 fill :#F07D00 ;    
-transition    :all 0.3s ease-in-out ;
+transition    :all 0.15s ease-in-out ;
 }
 `
 

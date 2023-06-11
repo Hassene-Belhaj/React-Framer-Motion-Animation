@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { GoPrimitiveDot } from 'react-icons/go'
-import { motion ,useAnimate} from 'framer-motion'
+import { motion, useAnimate } from 'framer-motion'
+import { useTransition } from 'react'
 
 
 const Container = styled.div`
@@ -69,82 +70,84 @@ margin: 0 1rem;
 cursor: pointer;
 `
 
-const Dot =styled(GoPrimitiveDot)`
+const Dot = styled(GoPrimitiveDot)`
 
 `
 
 
 
 
-const Slider = ({SliderData}) => {
+const Slider = ({ SliderData }) => {
 
-  const [index,setIndex] = useState(0)
+  const [index, setIndex] = useState(0)
 
-useEffect(()=>{
-const timeout = setTimeout(() => {
- nextSlide() 
-}, 2900); 
-return () => clearTimeout(timeout)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      nextSlide()
+    }, 2900);
+    return () => clearTimeout(timeout)
 
-},[index])
+  }, [index])
 
-console.log(SliderData.length);
-
-
-const nextSlide = () => {
-const curr = index === SliderData.length -1 
-setIndex(curr ? 0 : index + 1)
-}
-
-// const prevslide = () => {
-//  const curr = index === 0
-//  setIndex(curr ? SliderData.length - 1 : index - 1) 
-// }
-  
+  console.log(SliderData.length);
 
 
+  const nextSlide = () => {
+    const curr = index === SliderData.length - 1
+    setIndex(curr ? 0 : index + 1)
+  }
 
-const handleClick = (i) => {
-setIndex(i)
-}
+  // const prevslide = () => {
+  //  const curr = index === 0
+  //  setIndex(curr ? SliderData.length - 1 : index - 1) 
+  // }
+
+
+
+
+  const handleClick = (i) => {
+    setIndex(i)
+  }
 
   return (
-   <Container>
-    <ThumbsUp>
-      <img src="thumpsup.webp" alt="" />
-    </ThumbsUp>
-     <SlideDiv>
-       <DivText
+    <Container>
+      <ThumbsUp>
+        <img src="thumpsup.webp" alt="" />
+      </ThumbsUp>
+      <SlideDiv>
+        <DivText
           variants={{
-            hidden : { opacity : 0 , x : "100%"} ,
-            visible : {opacity : 1 , x : "0" }  ,
-        }}
-        initial='hidden'
-        animate='visible'
-        transition={{
-            type : 'spring' ,
-            bounce : 0.5 ,
-            duration : 2 ,
-            delay : 0.5,
-        }}       
-          
-       >
-        <h3>{SliderData[index].text} </h3>
-       </DivText>
-      <SlideDot>
-      {SliderData.map((item,i)=>{
-        return (
-          <DotDiv key={i}>
-            <Dot onClick={()=>handleClick(i)} size={25} />
-          </DotDiv>
-        )
-      })}
-      </SlideDot>
-      
+            hidden: { opacity: 0, x: "100%" },
+            visible: { opacity: 1, x: "0" },
+          }}
+          initial='hidden'
+          animate='visible'
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 2,
+            delay: 0.5,
+          }}
+
+        >
+          <motion.div>
+            <h3>{SliderData[index].text} </h3>
+          </motion.div>
+        </DivText>
+        <SlideDot>
+          {SliderData.map((item, i) => {
+            return (
+              <DotDiv key={i}>
+                <Dot onClick={() => handleClick(i)} size={25} />
+              </DotDiv>
+            )
+          })}
+        </SlideDot>
+
       </SlideDiv>
     </Container>
 
-    )
+  )
 }
 
 export default Slider

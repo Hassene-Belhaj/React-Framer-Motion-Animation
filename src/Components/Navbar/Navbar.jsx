@@ -90,7 +90,7 @@ cursor: pointer;
 
 const IconOne = styled(AiOutlineSearch)`
 cursor: pointer;
-transition: all 0.3s ease-in-out;
+transition: all 0.15s ease-in-out;
 
 &:hover {
  fill:#F07D00;
@@ -99,21 +99,21 @@ transition: all 0.3s ease-in-out;
 `
 const IconTwo = styled(AiOutlineUser)`
 cursor: pointer;
-transition: all 0.3s ease-in-out;
+transition: all 0.15s ease-in-out;
 
 &:hover {
  fill:#F07D00;
- transition: all 0.3s ease-in-out;
+ transition: all 0.15s ease-in-out;
 }
 `
 
 const IconThree= styled(BsFillBasketFill)`
 cursor: pointer;
-transition: all 0.3s ease-in-out;
+transition: all 0.15s ease-in-out;
 
 &:hover {
  fill:#F07D00;
- transition: all 0.3s ease-in-out;
+ transition: all 0.15s ease-in-out;
 }
 `
 
