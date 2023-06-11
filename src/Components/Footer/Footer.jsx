@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -11,7 +12,15 @@ margin : 5rem auto;
 const FooterDiv = styled.div`
 width: 100%;
 `
-
+const LinkItems = styled(Link)`
+text-decoration: none;
+color: #000;
+transition: all 0.15s ease-in-out;
+&:hover{
+transition: all 0.15s ease-in-out;
+color: #F07D00;
+}
+`
 
 const Footer = ({FooterbottomData}) => {
   return (
@@ -19,7 +28,8 @@ const Footer = ({FooterbottomData}) => {
             {FooterbottomData.map((item,K)=>{
                 return (
                     <FooterDiv key={K}>
-                    <span>{item.text}</span>  
+                       
+                    <LinkItems>{item.text}</LinkItems>  
                     </FooterDiv>
                 )
             })}

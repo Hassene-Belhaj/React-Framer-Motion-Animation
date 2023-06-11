@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { styled } from 'styled-components'
 import { GoPrimitiveDot } from 'react-icons/go'
-import { motion, useAnimate } from 'framer-motion'
-import { useTransition } from 'react'
+import { motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -48,6 +47,10 @@ h3{
 `
 const DivText = styled(motion.div)`
 width: 800px;
+transition: all 0.3 ease-in-out;
+h3{
+  transition: all 0.3s ease-in-out;
+}
 `
 
 
@@ -71,7 +74,6 @@ cursor: pointer;
 `
 
 const Dot = styled(GoPrimitiveDot)`
-
 `
 
 
@@ -80,6 +82,7 @@ const Dot = styled(GoPrimitiveDot)`
 const Slider = ({ SliderData }) => {
 
   const [index, setIndex] = useState(0)
+  
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -130,9 +133,7 @@ const Slider = ({ SliderData }) => {
           }}
 
         >
-          <motion.div>
             <h3>{SliderData[index].text} </h3>
-          </motion.div>
         </DivText>
         <SlideDot>
           {SliderData.map((item, i) => {
