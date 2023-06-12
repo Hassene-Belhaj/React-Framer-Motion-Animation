@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar/Navbar'
 import { BrowserRouter as Router } from 'react-router-dom'
 import SectionFour from './Components/Section/SectionFour'
 import Footer from './Components/Footer/Footer'
+import Carousel from './Components/Section/Carousel'
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -27,7 +28,6 @@ body {
 const Container = styled.div`
 width: 100%;
 height: 100%;
-overflow-x: hidden;
 `
 
 
@@ -44,7 +44,8 @@ const App = () => {
   <SectionThree />
   <SectionTwo TextBanner={TextBanner2} />
   <Slider SliderData={SliderData}/>
-  <SectionFour />
+  <Carousel/>
+<SectionFour />
   <Footer FooterbottomData={FooterbottomData}/>
 </Container>
 </Router>    

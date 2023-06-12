@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 
-const Header = styled.div`
+const Container = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -40,18 +40,21 @@ const Title = styled(motion.h1)`
 
 
 const SectionTwo = ({TextBanner}) => {
-  const ref  = useRef()  
+  const Ref  = useRef()  
   const { scrollYProgress } = useScroll()
   const width = useTransform(scrollYProgress, [0,1],[-900,900]);
 
 
+
+
   return (
     <>
-      <Header ref={ref}>
+      <Container ref={Ref}>
         <BannerDiv>
-         <Title style={{x : width }}>  &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text}<span>&bull;</span> </Title>
+         <Title  style={{x : width }}>  &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text} &nbsp; 
+         <span>&bull;</span> &nbsp; {TextBanner.text}<span>&bull;</span> </Title>
         </BannerDiv>
-      </Header>
+      </Container>
     </>
   );
 };
