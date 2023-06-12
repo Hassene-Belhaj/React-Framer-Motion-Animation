@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
 
 const Container = styled.div`
 width: 100%;
-height: 80vh;
+height: 100%;
+padding: 20rem 0;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -50,6 +51,9 @@ width: 800px;
 transition: all 0.3 ease-in-out;
 h3{
   transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width : 768px){
+  width: 400px;
 }
 `
 

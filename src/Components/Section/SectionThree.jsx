@@ -6,8 +6,8 @@ import { useInView } from 'react-intersection-observer'
 
 const Container = styled.div`
 width: 90%;
-height: 100vh;
-margin: 5rem auto 0 auto;
+height: 100%;
+margin: 5rem auto 5rem auto;
 overflow: hidden;
 display: flex;
 justify-content: center;

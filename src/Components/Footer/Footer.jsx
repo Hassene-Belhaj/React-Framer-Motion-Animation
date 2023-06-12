@@ -4,6 +4,7 @@ import { styled } from 'styled-components'
 import { motion ,useAnimation} from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
+import { BsChevronUp } from 'react-icons/bs'
 
 const Container = styled.div`
 width: 80%;
@@ -71,10 +72,12 @@ img{
 }
 `
 
+
+
 const Button = styled.button`
 position: relative;
 padding: 1rem 2rem;
-border-radius: 5px;
+border-radius: ${({border})=>border};
 background-color: #F07D00;
 border: none;
 color: #fff;
@@ -106,6 +109,15 @@ overflow: hidden;
 }
 
 `
+const ButtonTwo = styled.div`
+position: absolute;
+right: 5px;
+top: -10px;
+width: 50px;
+height: 50px;
+background: #F07D00;
+border-radius: 50%;
+`
 
 const FooterDiv = styled.div`
 width: 100%;
@@ -113,6 +125,7 @@ width: 100%;
 `
 const FooterContainerBottom= styled(motion.div)`
 width: 100%;
+position: relative;
 display: flex;
 @media screen and (max-width : 768px){
 display : block;
@@ -138,7 +151,7 @@ const Footer = ({FooterbottomData,FooterTopData}) => {
     const animation = useAnimation()
     
 
-useEffect(()=>{
+useEffect(()=>{  
 
 if(inView) {
 
@@ -188,7 +201,7 @@ animation.start("visible")
              <h3>{FooterTopData[0][0].title}</h3>
               <p>{FooterTopData[0][1].para}</p>
              <input type="text" placeholder="You Email Address" />
-              <Button>Submit</Button>
+              <Button border={"5px"}>Submit</Button>
             </SectionOne>
            <SectionTwo>
               <h3>{FooterTopData[1][0].title}</h3>
@@ -246,6 +259,9 @@ animation.start("visible")
                     </FooterDiv>
                 )
               })}
+             <ButtonTwo>
+              <BsChevronUp  style={{textAlign:"center"}} size={25}/>
+             </ButtonTwo>
             </FooterContainerBottom>
               </FooterContainer>
     </Container>
