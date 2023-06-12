@@ -92,7 +92,6 @@ const Slider = ({ SliderData }) => {
 
   }, [index])
 
-  console.log(SliderData.length);
 
 
   const nextSlide = () => {

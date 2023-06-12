@@ -57,7 +57,7 @@ const Carousel = () => {
   const Ref = useRef()
 
   useEffect(()=>{
-    console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
+    // console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
     setWidth(2900)
     // setWidth(2900);
   },[Ref])
