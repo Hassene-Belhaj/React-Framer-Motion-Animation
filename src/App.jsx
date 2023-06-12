@@ -3,7 +3,7 @@ import { createGlobalStyle, styled } from 'styled-components'
 import SectionOne from './Components/Section/SectionOne'
 import SectionTwo from './Components/Section/SectionTwo'
 import SectionThree from './Components/Section/SectionThree'
-import {FooterbottomData, NavLinks1, NavLinks2, SliderData, TextBanner, TextBanner2 } from './Data/Data'
+import {FooterTopData,FooterbottomData, NavLinks1, NavLinks2, SliderData, TextBanner, TextBanner2 } from './Data/Data'
 import Slider from './Components/Section/Slider'
 import Navbar from './Components/Navbar/Navbar'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -47,7 +47,7 @@ const App = () => {
   <Slider SliderData={SliderData}/>
   <Carousel/>
 <SectionFour />
-  <Footer FooterbottomData={FooterbottomData}/>
+  <Footer FooterbottomData={FooterbottomData} FooterTopData={FooterTopData}/>
 </Container>
 </Router>    
   
