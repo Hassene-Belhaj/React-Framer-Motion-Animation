@@ -15,7 +15,6 @@ align-items: center;
 `
 
 const Div  = styled.div`
-/* margin: 0 auto 5rem auto ; */
 background: #f8fafc;
 width: 100%;
 height: 100%;

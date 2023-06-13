@@ -1,28 +1,32 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Link as LinkScroll } from 'react-scroll'
 import { styled } from 'styled-components'
 import { motion ,useAnimation} from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
 import { BsChevronUp } from 'react-icons/bs'
 
+
 const Container = styled.div`
-width: 80%;
+width: 100%;
 height: 100%;
 margin : 5rem auto;
 `
 const FooterContainer = styled(motion.footer)`
-width: 80%;
+width: 100%;
 height: 100%;
 margin : 5rem auto;
+text-align: center;
 `
 
 const FooterContainerTop = styled(motion.div)`
-width: 80%;
+width: 100%;
 height: 100%;
 display: flex;
 flex: 1;
-gap: 5rem;
+justify-content: center;
+gap: 6rem;
 margin: 5rem auto;
 @media screen and (max-width : 768px){
   display: block;
@@ -83,40 +87,32 @@ border: none;
 color: #fff;
 z-index: 1;
 overflow: hidden;
+cursor: pointer;
 
 
 &::before{
   content: "" ;
   position: absolute;
   top: 0;
-  left :-1rem;
+  left :-1.5rem;
   right: 0;
   bottom: 0;
   width: 0;
   height: 105%;
   background-color: #000;
-  transition:all 0.3s ease-in-out;
+  transition:all 0.4s ease-in-out;
   transform: skewX(36deg);
   z-index: -1;
   border-radius: 5px;
 }
 &:hover::before{
   width: 150%;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 &:hover {
   color: #fff;
 }
 
-`
-const ButtonTwo = styled.div`
-position: absolute;
-right: 5px;
-top: -10px;
-width: 50px;
-height: 50px;
-background: #F07D00;
-border-radius: 50%;
 `
 
 const FooterDiv = styled.div`
@@ -145,11 +141,21 @@ color: #F07D00;
 font-size: 1.3rem;
 }
 `
+const Scroll = styled.div`
+width: 80%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 5rem auto;
+`
+
+
 
 const Footer = ({FooterbottomData,FooterTopData}) => {
     const {ref , inView} = useInView()
     const animation = useAnimation()
-    
+
+ 
 
 useEffect(()=>{  
 
@@ -259,13 +265,30 @@ animation.start("visible")
                     </FooterDiv>
                 )
               })}
-             <ButtonTwo>
-              <BsChevronUp  style={{textAlign:"center"}} size={25}/>
-             </ButtonTwo>
-            </FooterContainerBottom>
+          
+            </FooterContainerBottom> 
+             <Scroll>
+              
+          <LinkScroll to="Top" spy={true} smooth={true} offset={0} duration={1000}>
+                        <Button>
+
+                          <BsChevronUp size={25}/> 
+                        </Button>
+          </LinkScroll>
+
+
+              </Scroll>
               </FooterContainer>
+            
+
+
+     {/* npm i react-scroll ---------------------------------- */}
+    
     </Container>
     )
 }
 
 export default Footer
+
+
+
