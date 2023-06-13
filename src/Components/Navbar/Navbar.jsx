@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
-import { AiOutlineSearch , AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineSearch , AiOutlineUser,AiOutlineMenu,AiOutlineClose } from 'react-icons/ai'
 import { BsFillBasketFill} from 'react-icons/bs'
 
 
@@ -25,6 +25,15 @@ align-items: center;
 position: relative;
 @media screen and (max-width : 1065px){
    height:70%;
+}
+`
+const Menu = styled.div`
+position: absolute;
+top : 50% ;
+transform : translateY(-50%);
+left: 15px;
+@media screen and (min-width : 768px){
+    display: none;
 }
 `
 
@@ -118,9 +127,14 @@ transition: all 0.15s ease-in-out;
 `
 
 const Navbar = ({NavLinks1,NavLinks2}) => {
+    const [nav,setNav] = useState(false)
   return (
   <Container id="Top">
     <Nav>
+        <Menu>
+            {nav ? <AiOutlineClose size={30} onClick={()=>setNav(!nav)} /> : <AiOutlineMenu size={30} onClick={()=>setNav(!nav)}/>  }
+         
+        </Menu>
         <Logo>
          <img src="logo.avif" alt="" />
         </Logo>

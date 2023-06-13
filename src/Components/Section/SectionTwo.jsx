@@ -49,9 +49,9 @@ const SectionTwo = ({TextBanner}) => {
 
   return (
     <>
-      <Container ref={Ref}>
-        <BannerDiv>
-         <Title  style={{x : width }}>  &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text} &nbsp; 
+      <Container  ref={Ref}>
+        <BannerDiv >
+         <Title style={{x : width }}>  &nbsp; {TextBanner.text} &nbsp; <span>&bull;</span> &nbsp; {TextBanner.text} &nbsp; 
          <span>&bull;</span> &nbsp; {TextBanner.text}<span>&bull;</span> </Title>
         </BannerDiv>
       </Container>

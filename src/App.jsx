@@ -11,6 +11,7 @@ import SectionFour from './Components/Section/SectionFour'
 import Footer from './Components/Footer/Footer'
 import Carousel from './Components/Section/Carousel'
 import { BsChevronUp } from 'react-icons/bs'
+import CarouselTest from './Components/Section/CarouselTest'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -69,6 +70,7 @@ const App = () => {
   <SectionTwo TextBanner={TextBanner2} />
   <Slider SliderData={SliderData}/>
   <Carousel/>
+  <CarouselTest />
 <SectionFour />
   <Footer FooterbottomData={FooterbottomData} FooterTopData={FooterTopData}/> 
 </Container>

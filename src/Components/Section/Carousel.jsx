@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import {BsChevronRight,BsChevronLeft } from 'react-icons/bs'
 
 const Container = styled.div`
 width: 95%;
@@ -18,13 +19,39 @@ margin : 5rem auto;
 overflow-x: hidden;
 cursor: grab;
 `
-const leftArrow = styled.div`
+const LeftArrow = styled.div`
 position: absolute;
-width: 50px;
-height: 50px;
-background: #000;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+top : 50%;
+transform: translateY(-50%);
+bottom: 0;
+left: 2rem;
+background:rgba(0,0,0,0.8);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
+cursor: pointer;
 `
 
+const RightArrow = styled.div`
+position: absolute;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+top : 50%;
+transform: translateY(-50%);
+bottom: 0;
+right: 2rem;
+background:rgba(0,0,0,0.8);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
+cursor: pointer;
+`
 
 const CarouselDiv = styled(motion.div)`
 padding: 2rem;
@@ -40,15 +67,11 @@ img{
     height: 500px;
     border-radius: 25px;
     object-fit: cover;
-    pointer-events: none;
-
- }
+    pointer-events: none;    
+}
 `
 
-
-
-
-const SliderImg  = [
+const Slides  = [
     {img : "bottles.webp"},
     {img : "man.webp"},
     {img : "woman.webp"},
@@ -61,26 +84,43 @@ const SliderImg  = [
 
 
 const Carousel = () => {
-  const [width,setWidth] = useState(0)  
-  const Ref = useRef()
+const [width,setWidth] = useState(0)  
+const Ref = useRef()
 
-  useEffect(()=>{
-    // console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
-    setWidth(2900)
-    // setWidth(2900);
-  },[Ref])
+
+
+useEffect(()=>{
+// console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
+setWidth(3700)
+},[Ref])
 
   return (
     <Container>
-         
 
-        <CarouselContainer ref={Ref} >
+         {/* <LeftArrow > 
+            <BsChevronLeft color='#fff' size={50} />
+         </LeftArrow>
 
-        <CarouselDiv drag='x' dragConstraints={{ right : 0 , left : -width }}>
-         {SliderImg.map((item,index)=>{
+         <RightArrow>
+            <BsChevronRight color='#fff' size={50} />
+        </RightArrow>   */}
+
+        <CarouselContainer 
+        ref={Ref} 
+        >
+
+        <CarouselDiv 
+            drag='x' 
+            dragConstraints={{ 
+            right : 0 , 
+            left : -width 
+            }}    
+    
+            >
+             
+            {Slides.map((item,index)=>{
              return (
-
-                    <motion.div key={index}>
+                    <motion.div>
                         <img  src={item.img} alt="" />
                     </motion.div>
                  
