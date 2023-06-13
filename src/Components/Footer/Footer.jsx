@@ -49,15 +49,22 @@ input::placeholder{
   padding-left: 0.3rem;
 }
 p {
-  margin: 1rem 0;
   width: 500px;
   font-size:1.3rem;
+  margin:1rem auto;
+}
+@media screen and (max-width : 768px) {
+
 }
 `
 const SectionTwo = styled.div`
 li {
   list-style: none;
   margin: 0.3rem 0;
+}
+
+@media screen and (max-width : 768px) {
+  padding: 2rem;
 }
 `
 
@@ -179,8 +186,8 @@ animation.start("visible")
     initial="hidden"
     animate={animation}
     transition={{
-      duration : 1 ,
-      delay : 0.1 ,
+      duration : 1.5 ,
+      delay : 0.3 ,
       type : 'spring' ,
       bounce : 0.2 ,
       
@@ -206,8 +213,10 @@ animation.start("visible")
             <SectionOne>
              <h3>{FooterTopData[0][0].title}</h3>
               <p>{FooterTopData[0][1].para}</p>
-             <input type="text" placeholder="You Email Address" />
+              <form onClick={(e)=>e.preventDefault()}>
+              <input type="text" placeholder="You Email Address" />
               <Button border={"5px"}>Submit</Button>
+              </form>
             </SectionOne>
            <SectionTwo>
               <h3>{FooterTopData[1][0].title}</h3>

@@ -7,15 +7,12 @@ import { useInView } from 'react-intersection-observer'
 const Container = styled.div`
 width: 100%;
 height: 100%;
-justify-content: center;
-align-items: center;
 margin: auto;
 position: relative;
 z-index: 10;
 overflow: hidden;
 `
 const Main = styled.div`
-
 margin-top: -15rem;
 margin-left: auto;
 margin-right: auto;
@@ -25,6 +22,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding:5rem ;
+@media screen and (max-width : 768px) {
+  display: block;
+  width: 100%;
+  margin: auto;
+}
 `
 const LeftCol = styled.div`
 width: 50%;
@@ -39,20 +41,34 @@ h3{
 p{
     font-size:1.2rem ;
 }
+@media screen and (max-width : 768px) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 2rem auto;
+}
 `
 const RightCol = styled.div`
-width: 50%;
+width: 80%;
 height: 100%;
 display: flex;
 justify-content: center;
 border-radius: 5px;
 img{
-    width: 600px;
-    height: 700px;
+    width: 80%;
     border-radius: 5px;
     object-fit: cover;
-
 }
+@media screen and (max-width : 768px) {
+    width: 100%;
+    margin: auto;
+    img{
+    width: 600px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+}
+
 `
 
 
@@ -80,6 +96,9 @@ img{
     width: 90%;
     object-fit: cover;
     z-index: 20;
+}
+@media screen and (max-width : 768px) {
+  display: block;
 }
 `
 

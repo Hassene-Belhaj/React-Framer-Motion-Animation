@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 const Container = styled.div`
 width: 100%;
-height: 100%;
+height: 800px;
 padding: 20rem 0;
 display: flex;
 justify-content: center;
