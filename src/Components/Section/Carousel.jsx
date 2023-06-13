@@ -4,9 +4,10 @@ import { motion } from 'framer-motion'
 import { useRef } from 'react'
 
 const Container = styled.div`
-width: 94%;
+width: 95%;
 height: 100%;
 margin:auto;
+position: relative;
 `
 const CarouselContainer = styled(motion.div)`
 width: 100%;
@@ -17,6 +18,13 @@ margin : 5rem auto;
 overflow-x: hidden;
 cursor: grab;
 `
+const leftArrow = styled.div`
+position: absolute;
+width: 50px;
+height: 50px;
+background: #000;
+`
+
 
 const CarouselDiv = styled(motion.div)`
 padding: 2rem;
@@ -64,18 +72,21 @@ const Carousel = () => {
 
   return (
     <Container>
+         
 
         <CarouselContainer ref={Ref} >
 
-        <CarouselDiv drag='x' dragConstraints={{right : 0 , left :-width}}>
+        <CarouselDiv drag='x' dragConstraints={{ right : 0 , left : -width }}>
          {SliderImg.map((item,index)=>{
              return (
+
                     <motion.div key={index}>
                         <img  src={item.img} alt="" />
                     </motion.div>
                  
                  )
                 })}
+
            
             </CarouselDiv>
 

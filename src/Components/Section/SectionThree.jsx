@@ -30,6 +30,19 @@ img{
     width: 35%;
  
 }
+@media screen and (max-width : 768px) {
+
+}
+`
+
+const ImageDiv =styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+@media screen and (max-width : 768px) {
+display:none ;
+}
+
 `
 
 const LeftCol = styled(motion.div)`
@@ -43,12 +56,15 @@ img{
     object-fit: cover;
     width: 35%;
 }
+@media screen and (max-width : 768px) {
+
+}
 `
 
 const MiddleCol = styled.div`
 padding-top:6rem ;
-width: 100%;
-height: 100%;
+width: 800px;
+height: 900px;
 margin:0;
 display: flex;
 justify-content:flex-start;
@@ -60,13 +76,29 @@ p{
     margin-top: 4rem ;
     text-align: center;
 }
+@media screen and (max-width : 768px) {
+width: 100%;
+p{
+    width :100% ;
+    font-size: 1.3rem;
+    margin-top: 2rem ;
+    text-align: center;
+}
+}
 `
 
 const H3 = styled(motion.h3)`
     font-size: 4rem;
     text-align: center;
-    
-    `
+    p{
+    width :52% ;
+    font-size: 1.3rem;
+    margin-top: 4rem ;
+    text-align: center;
+    }   
+@media screen and (max-width : 768px) {
+}
+`
 
 
 
@@ -107,10 +139,11 @@ const SectionThree = () => {
             staggerChildren: 0.5
         }}
         >
-
-        <img src="orange1.webp" alt="" />
-        <img src="orange2.webp" alt="" />
-    <img src="orange3.webp" alt="" />
+        <ImageDiv>
+            <img src="orange1.webp" alt="" />
+            <img src="orange2.webp" alt="" />
+            <img src="orange3.webp" alt="" />
+        </ImageDiv>
     
      </RightCol>
       <MiddleCol>
@@ -144,9 +177,11 @@ const SectionThree = () => {
             duration : 3 ,
         }}
         >
+    <ImageDiv>
         <img src="orange4.webp" alt="" />
         <img src="orange5.webp" alt="" />
-    <img src="orange6.webp" alt="" />
+        <img src="orange6.webp" alt="" />
+    </ImageDiv>        
      </LeftCol>
    </Container>
     )

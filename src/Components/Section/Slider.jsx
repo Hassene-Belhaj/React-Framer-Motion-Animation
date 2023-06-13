@@ -19,7 +19,7 @@ position: relative;
 
 const ThumbsUp = styled.div`
 position: absolute;
-top: 25%;
+top: 15%;
 left: 5rem;
 display: flex;
 width: auto;
@@ -53,7 +53,7 @@ h3{
   transition: all 0.3s ease-in-out;
 }
 @media screen and (max-width : 768px){
-  width: 400px;
+  width: 300px;
 }
 `
 
@@ -61,7 +61,7 @@ h3{
 
 const SlideDot = styled.div`
 position: absolute;
-margin-top: 10rem;
+margin-top: 20rem;
 display: flex;
 justify-content: center;
 align-items: center;

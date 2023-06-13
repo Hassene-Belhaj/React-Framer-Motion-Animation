@@ -26,6 +26,7 @@ padding:5rem ;
   display: block;
   width: 100%;
   margin: auto;
+  margin-top:-15rem;
 }
 `
 const LeftCol = styled.div`
@@ -70,6 +71,19 @@ img{
 }
 
 `
+const BannerSm = styled.div`
+display: none;
+@media screen and (max-width : 768px) {
+display    : block;
+width: 100%;
+img{
+    width: 100%;
+    object-fit: cover;
+}
+}
+
+`
+
 
 
 const BannerDiv = styled.div`
@@ -81,7 +95,9 @@ img{
     width: 100%;
     object-fit: cover;
 }
-
+@media screen and (max-width : 768px) {
+    display: none;
+}
 `
 
 const ImageDiv = styled.div`
@@ -119,23 +135,14 @@ useEffect(()=>{
 },[inView])
 
 
-// const VariantItem = {
-//     hidden : {
-//         x : "-100vw"
-//     },
-//     visible :{
-//         x: 0 ,
-//         transition : {
-//             delay : 0.3 ,
-//             duration :  1
-//         }
-//     }
-// }
-
  return (
 <Container >
 
+    <BannerSm>    
+        <img src="mobile.webp" alt="" />       
+    </BannerSm> 
     <BannerDiv ref={ref}>
+   
         <motion.img  
         initial={{opacity : 0.1}}
         animate={{
@@ -144,23 +151,11 @@ useEffect(()=>{
                 duration : 2 ,
             }
         }}
-        src="full.webp" alt="" />
+        src="full.webp" alt="" 
+        />
     </BannerDiv>
 
     <motion.div
-        // variants={{
-        //     hidden :{y : -10 },
-        //     visible :{y : 10 }
-        // }}
-        // initial="hidden"
-        // animate={animation}
-        // transition={{
-        //     duration : 1 ,
-        //     delay : 0.2 ,
-        //     type : 'tween' ,
-        //     repeat : 6 ,
-        //     repeatType : 'reverse' ,
-        // }}
         variants={{
             hidden : { opacity : 0 , x : "-100%"} ,
             visible : {opacity : 1 , x : "0" }  ,
@@ -180,6 +175,7 @@ useEffect(()=>{
         src="orange4.webp" alt="" />
         </ImageDiv>
     </motion.div>
+    
         <Main>
             <LeftCol>
             <h3>THE JUICEBURST PROMISE.</h3>
