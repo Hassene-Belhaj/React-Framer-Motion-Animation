@@ -6,6 +6,13 @@ import { BsFillBasketFill} from 'react-icons/bs'
 
 
 const Container = styled.div`
+width: 100%;
+height: 100%;
+position: relative;
+`
+
+
+const NavContainer = styled.div`
 width: 100% ;
 height: 160px;
 display: flex;
@@ -22,32 +29,58 @@ background: #fff;
 display: flex;
 justify-content: center;
 align-items: center;
-position: relative;
 @media screen and (max-width : 1065px){
-   height:70%;
+height:70%;
 }
 `
 const Menu = styled.div`
-position: absolute;
-top : 50% ;
+position: ${({nav})=>nav ? "fixed" : "absolute"};
+top : 5rem;
 transform : translateY(-50%);
-left: 15px;
+left: 25px;
+z-index: 105;
 @media screen and (min-width : 768px){
-    display: none;
+display: none;
 }
+`
+const NavContainerSm = styled.div`
+display: none;
+@media screen and (max-width:768px){
+display    : block;
+position: fixed;
+top: ;
+bottom: 0;
+left: ${({nav})=> nav ? 0 : "-100%"};
+right: 0;
+width: 100%;
+height: 100vh;
+z-index: 100; 
+transition: all 0.5s ease-in-out;
+
+}
+
+`
+const ContainerSm = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+padding-top: 10rem;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: #d5d5d5;
 `
 
 const Logo = styled.div`
-position: absolute;
+position: ${({nav})=>nav ? "fixed" : "absolute"};
 top: 0px;
 left: 50% ;
 transform: translate(-50%);
 display: flex;
-width: auto;
-height: 100%;
+z-index: 600;
 cursor: pointer;
 img {
-    width:auto;
+    width:180px;
     object-fit: cover;
 }
 
@@ -126,33 +159,40 @@ transition: all 0.15s ease-in-out;
 }
 `
 
-const Navbar = ({NavLinks1,NavLinks2}) => {
+
+
+
+const Navbar = ({NavLinks}) => {
     const [nav,setNav] = useState(false)
+    const handleClick = () =>setNav(!nav)
+    const handleClose = () =>setNav(!nav)
+
   return (
-  <Container id="Top">
-    <Nav>
-        <Menu>
-            {nav ? <AiOutlineClose size={30} onClick={()=>setNav(!nav)} /> : <AiOutlineMenu size={30} onClick={()=>setNav(!nav)}/>  }
-         
+      
+      <Container id="Top">
+      <NavContainer>
+      <Nav>
+        <Menu nav={nav}>
+            {nav ? <AiOutlineClose style={{cursor:"pointer"}}  size={25} onClick={handleClick} /> : <AiOutlineMenu style={{cursor:"pointer"}} size={25} onClick={handleClick}/>  }       
         </Menu>
-        <Logo>
+        <Logo nav={nav}>
          <img src="logo.avif" alt="" />
         </Logo>
           <FirstNav>
-            {NavLinks1.map((item,key)=>{
+            {NavLinks[0].map((item,key)=>{
                 return (
-                    <LinkItem key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
+                    <LinkItem  key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
                     )
                 })}
         </FirstNav>
        <SecondNav>
-       {NavLinks2.map((item,key)=>{
+       {NavLinks[1].map((item,key)=>{
            return (
-              
-                <LinkItem  key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
                
-                    )
-                })}
+               <LinkItem  key={key} style={{marginLeft:"3rem"}}>{item.link}</LinkItem>
+               
+               )
+            })}
         </SecondNav>
         <ThirdNav>
             <IconOne style={{marginLeft :"1rem"}} size={20}/>
@@ -160,6 +200,28 @@ const Navbar = ({NavLinks1,NavLinks2}) => {
             <IconThree style={{marginLeft :"1rem"}} size={20}/>
         </ThirdNav>
     </Nav>
+
+    
+    </NavContainer> 
+
+        <NavContainerSm nav={nav}> 
+              <ContainerSm>
+                {NavLinks[0].map((item,key)=>{
+                    return (
+                        <LinkItem  onClick={handleClick} key={key} style={{marginBottom:"3rem",fontSize:"1.4rem"}}>{item.link}</LinkItem>
+                        )
+                    })}
+
+                {NavLinks[1].map((item,key)=>{
+                    return (  
+                        <LinkItem onClick={handleClick} key={key} style={{marginBottom:"3rem",fontSize:"1.4rem"}}>{item.link}</LinkItem>
+                        
+                        )
+                    })}
+        
+              </ContainerSm>
+        </NavContainerSm> 
+
   </Container>
     )
 }

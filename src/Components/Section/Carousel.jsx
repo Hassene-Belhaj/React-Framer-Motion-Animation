@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { styled } from 'styled-components'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import {BsChevronRight,BsChevronLeft } from 'react-icons/bs'
 
 const Container = styled.div`
 width: 95%;
@@ -91,19 +90,13 @@ const Ref = useRef()
 
 useEffect(()=>{
 // console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
-setWidth(3700)
+setWidth(3000)
 },[Ref])
 
   return (
     <Container>
 
-         {/* <LeftArrow > 
-            <BsChevronLeft color='#fff' size={50} />
-         </LeftArrow>
-
-         <RightArrow>
-            <BsChevronRight color='#fff' size={50} />
-        </RightArrow>   */}
+       
 
         <CarouselContainer 
         ref={Ref} 

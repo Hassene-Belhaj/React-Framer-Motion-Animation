@@ -86,7 +86,7 @@ if(inView) {
         initial="hidden"
         animate={animation}
         transition={{
-          duration : 1.5 ,
+          duration : 1.8 ,
           type : "spring" ,
           bounce : 0.2
         }}

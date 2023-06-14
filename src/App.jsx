@@ -3,15 +3,13 @@ import { createGlobalStyle, styled } from 'styled-components'
 import SectionOne from './Components/Section/SectionOne'
 import SectionTwo from './Components/Section/SectionTwo'
 import SectionThree from './Components/Section/SectionThree'
-import {FooterTopData,FooterbottomData, NavLinks1, NavLinks2, SliderData, TextBanner, TextBanner2 } from './Data/Data'
+import {FooterTopData,FooterbottomData, NavLinks,SliderData, TextBanner, TextBanner2 } from './Data/Data'
 import Slider from './Components/Section/Slider'
 import Navbar from './Components/Navbar/Navbar'
 import { Link, BrowserRouter as Router } from 'react-router-dom'
 import SectionFour from './Components/Section/SectionFour'
 import Footer from './Components/Footer/Footer'
 import Carousel from './Components/Section/Carousel'
-import { BsChevronUp } from 'react-icons/bs'
-import CarouselTest from './Components/Section/CarouselTest'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -25,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
-
 }
 `
 
@@ -63,14 +60,13 @@ const App = () => {
 <Router>
  <Container >
   <GlobalStyle />
-  <Navbar NavLinks1={NavLinks1} NavLinks2={NavLinks2} />
+  <Navbar NavLinks={NavLinks} />
   <SectionOne />
   <SectionTwo TextBanner={TextBanner} />
   <SectionThree />
   <SectionTwo TextBanner={TextBanner2} />
   <Slider SliderData={SliderData}/>
   <Carousel/>
-  <CarouselTest />
 <SectionFour />
   <Footer FooterbottomData={FooterbottomData} FooterTopData={FooterTopData}/> 
 </Container>

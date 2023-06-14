@@ -75,6 +75,7 @@ const BannerSm = styled.div`
 display: none;
 @media screen and (max-width : 768px) {
 display    : block;
+margin:auto;
 width: 100%;
 img{
     width: 100%;

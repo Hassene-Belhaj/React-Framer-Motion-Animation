@@ -17,26 +17,27 @@ export const SliderData = [
 ]    
 
 
-export const NavLinks1= [
-    {link : "Shop"},
-    {link : "The Daily Squeeze"},
-    {link : "About Us"},
-]
-
-export const NavLinks2 = [
-    {link : "What's New?"},
-    {link : "Contact"},
-]
+export const NavLinks= [
+   [
+     {link : "Shop"},
+     {link : "The Daily Squeeze"},
+     {link : "About Us"},
+   ],
+    
+   [
+      {link : "What's New?"},
+      {link : "Contact"},
+   ]
+    
+  ]
 
 export const FooterbottomData = [
-
-    {text : "©Juice Burst™2023"},
+    {text : "©Juice Burst™2023 "},
     {text : "Contact Us"},
     {text: "Cookie Policy"},
     {text: "Privacy Policy"},
     {text: "Refund Policy"},
     {text: "Terms of Service"},
-
 ]
 
 export const FooterTopData = [
