@@ -16,13 +16,14 @@ const Main = styled.div`
 margin-top: -15rem;
 margin-left: auto;
 margin-right: auto;
-width: 80%;
+width: 70%;
 height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
 padding:5rem ;
-@media screen and (max-width : 768px) {
+gap:2rem;
+@media screen and (max-width : 1024px) {
   display: block;
   width: 100%;
   margin: auto;
@@ -30,8 +31,8 @@ padding:5rem ;
 }
 `
 const LeftCol = styled.div`
-width: 50%;
-height: 80%;
+width: 100%;
+height: 100%;
 display: flex;
 flex-direction: column;
 line-height: 2rem;
@@ -50,21 +51,22 @@ p{
 }
 `
 const RightCol = styled.div`
-width: 80%;
+width: 100%;
 height: 100%;
 display: flex;
 justify-content: center;
 border-radius: 5px;
 img{
-    width: 80%;
+    max-width: 100%;
+    min-width: 60%;
     border-radius: 5px;
     object-fit: cover;
 }
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 1024px) {
     width: 100%;
     margin: auto;
     img{
-    width: 600px;
+    width: 100%;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -85,8 +87,6 @@ img{
 
 `
 
-
-
 const BannerDiv = styled.div`
 width: 100%;
 height: 10rem;
@@ -96,7 +96,7 @@ img{
     width: 100%;
     object-fit: cover;
 }
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 1024px) {
     display: none;
 }
 `
@@ -116,6 +116,11 @@ img{
 }
 @media screen and (max-width : 768px) {
   display: block;
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}  
 }
 `
 
