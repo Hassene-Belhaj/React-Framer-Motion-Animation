@@ -193,23 +193,7 @@ animation.start("visible")
       
     }}>
 
-      <FooterContainerTop
-    //   variants={{
-    //   hidden : { opacity : 0 , y : "100%"} ,
-    //   visible : {opacity : 1 , y: "0" }  ,
-    // }}
-    // initial="hidden"
-    // animate={animation}
-    // transition={{
-    //   duration : 1 ,
-    //   delay : 0.2 ,
-    //   type : 'spring' ,
-    //   bounce : 0.2 ,
-      
-    // }}
-    
-    
-    >
+      <FooterContainerTop>
             <SectionOne>
              <h3>{FooterTopData[0][0].title}</h3>
               <p>{FooterTopData[0][1].para}</p>

@@ -48,7 +48,7 @@ display: none;
 @media screen and (max-width:768px){
 display    : block;
 position: fixed;
-top: ;
+top: 0 ;
 bottom: 0;
 left: ${({nav})=> nav ? 0 : "-100%"};
 right: 0;
@@ -172,10 +172,10 @@ const Navbar = ({NavLinks}) => {
       <Container id="Top">
       <NavContainer>
       <Nav>
-        <Menu nav={nav}>
+        <Menu nav={nav ? 1 : 0}>
             {nav ? <AiOutlineClose style={{cursor:"pointer"}}  size={25} onClick={handleClick} /> : <AiOutlineMenu style={{cursor:"pointer"}} size={25} onClick={handleClick}/>  }       
         </Menu>
-        <Logo nav={nav}>
+        <Logo nav={nav ? 1 : 0}>
          <img src="logo.avif" alt="" />
         </Logo>
           <FirstNav>
@@ -204,7 +204,7 @@ const Navbar = ({NavLinks}) => {
     
     </NavContainer> 
 
-        <NavContainerSm nav={nav}> 
+        <NavContainerSm nav={nav ? 1 : 0}> 
               <ContainerSm>
                 {NavLinks[0].map((item,key)=>{
                     return (

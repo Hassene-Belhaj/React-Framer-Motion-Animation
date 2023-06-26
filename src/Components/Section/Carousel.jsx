@@ -113,7 +113,7 @@ setWidth(3000)
              
             {Slides.map((item,index)=>{
              return (
-                    <motion.div>
+                    <motion.div key={index}>
                         <img  src={item.img} alt="" />
                     </motion.div>
                  
