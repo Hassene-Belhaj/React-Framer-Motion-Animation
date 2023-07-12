@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { styled } from 'styled-components'
-import { motion } from 'framer-motion'
+import { motion ,useScroll, useTransform} from 'framer-motion'
 import { useRef } from 'react'
 
 const Container = styled.div`
@@ -14,7 +14,7 @@ width: 100%;
 height: 100%;
 background-color:#000;
 border-radius: 25px;
-margin : 5rem auto;
+margin : 2rem auto;
 overflow-x: hidden;
 cursor: grab;
 `
@@ -53,10 +53,9 @@ cursor: pointer;
 `
 
 const CarouselDiv = styled(motion.div)`
-padding: 2rem;
 width: 100%;
-height: 100%;
-gap: 2rem;
+height:auto;
+gap: 1rem;
 background-color: #000;
 display: flex;
 align-items: center;
@@ -69,6 +68,7 @@ img{
     pointer-events: none;    
 }
 `
+
 
 const Slides  = [
     {img : "bottles.webp"},
@@ -84,47 +84,41 @@ const Slides  = [
 
 const Carousel = () => {
 const [width,setWidth] = useState(0)  
-const Ref = useRef()
-
-
+const scrollref = useRef(null)
+const {scrollXProgress} = useScroll({target:scrollref})
+const Width = useTransform(scrollXProgress, [0 , 1] , ['0%','100%'])
 
 useEffect(()=>{
 // console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
 setWidth(3000)
-},[Ref])
+},[scrollref])
+
 
   return (
-    <Container>
-
-       
-
-        <CarouselContainer 
-        ref={Ref} 
-        >
-
-        <CarouselDiv 
+      
+          <Container  >
+      <CarouselContainer  >
+        <CarouselDiv
             drag='x' 
             dragConstraints={{ 
-            right : 0 , 
-            left : -width 
-            }}    
-    
-            >
-             
-            {Slides.map((item,index)=>{
-             return (
-                    <motion.div key={index}>
-                        <img  src={item.img} alt="" />
-                    </motion.div>
-                 
-                 )
-                })}
-
+                right : 0 , 
+                left : -width 
+        }}    
+        >
            
-            </CarouselDiv>
+            {Slides.map((item,index)=>{
+                return (
+                    <motion.div key={index} >
+                        <img src={item.img} alt="" />
+                    </motion.div>
+                 )
+                })} 
 
+                
+            
+            </CarouselDiv>
      </CarouselContainer>
-               
+ 
     </Container>
     )
 }

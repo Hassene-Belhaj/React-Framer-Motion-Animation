@@ -7,8 +7,8 @@ import { motion } from 'framer-motion'
 
 const Container = styled.div`
 width: 100%;
-height: 800px;
-padding: 20rem 0;
+height: auto;
+padding: 15rem 0;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -47,14 +47,17 @@ h3{
 }
 `
 const DivText = styled(motion.div)`
-width: 800px;
+width: 60%;
+height:200px;
 transition: all 0.3 ease-in-out;
 h3{
-  transition: all 0.3s ease-in-out;
+  font-size: 1.5rem;
 }
 @media screen and (max-width : 768px){
   width: 300px;
+  height: 280px;
 }
+overflow: hidden;
 `
 
 
@@ -91,7 +94,7 @@ const Slider = ({ SliderData }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       nextSlide()
-    }, 2900);
+    }, 2500);
     return () => clearTimeout(timeout)
 
   }, [index])
@@ -121,22 +124,19 @@ const Slider = ({ SliderData }) => {
         <img src="thumpsup.webp" alt="" />
       </ThumbsUp>
       <SlideDiv>
-        <DivText
-          variants={{
-            hidden: { opacity: 0, x: "100%" },
-            visible: { opacity: 1, x: "0" },
-          }}
-          initial='hidden'
-          animate='visible'
+        <DivText>
+            <motion.h3 initial={{opacity : 0 , x :'100%'}}
+          animate={{opacity :1 , x : 0}}
+          exit={{opacity : 0}}
           transition={{
-            type: 'spring',
-            bounce: 0.5,
-            duration: 2,
-            delay: 0.5,
+            duration : 0.3 ,
+            type :'spring' ,
+            bounce : 0.3
           }}
-
-        >
-            <h3>{SliderData[index].text} </h3>
+          key={SliderData[index].text}
+          >
+            {SliderData[index].text} 
+            </motion.h3>
         </DivText>
         <SlideDot>
           {SliderData.map((item, i) => {
