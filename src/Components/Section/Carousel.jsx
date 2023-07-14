@@ -86,7 +86,7 @@ const Carousel = () => {
 const [width,setWidth] = useState(0)  
 const scrollref = useRef(null)
 const {scrollXProgress} = useScroll({target:scrollref})
-const Width = useTransform(scrollXProgress, [0 , 1] , ['0%','100%'])
+// const Width = useTransform(scrollXProgress, [0 , 1] , ['0%','100%'])
 
 useEffect(()=>{
 // console.log(Ref.current.scrollWidth-Ref.current.offsetWidth);
@@ -96,8 +96,8 @@ setWidth(3000)
 
   return (
       
-          <Container  >
-      <CarouselContainer  >
+<Container  >
+      <CarouselContainer ref={scrollref} >
         <CarouselDiv
             drag='x' 
             dragConstraints={{ 
