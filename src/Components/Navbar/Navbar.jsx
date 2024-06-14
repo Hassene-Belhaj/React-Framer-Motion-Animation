@@ -3,69 +3,60 @@ import { styled } from "styled-components";
 import { AiOutlineSearch, AiOutlineUser, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsFillBasketFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { motion , useScroll} from 'framer-motion'
+import { motion, useScroll } from "framer-motion";
 
-const Navbar = ({ NavLinks,nav,setNav }) => {
+const Navbar = ({ NavLinks, nav, setNav }) => {
   const handleClick = () => setNav(!nav);
-  const {scrollYProgress}=useScroll()
+  const { scrollYProgress } = useScroll();
 
-  
-  useEffect(()=>{
+  useEffect(() => {
     const handler = () => {
-    if(window.innerWidth > 845) {
-     setNav(false)
-    }
-   }
-   window.addEventListener('resize' , handler)
-   return () => window.removeEventListener('resize' , handler)
-    },[])
-
+      if (window.innerWidth > 845) {
+        setNav(false);
+      }
+    };
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   return (
-    <Container id="Top" $nav={nav} >
-       <ScrollProgressMotion style={{scaleX :scrollYProgress }}></ScrollProgressMotion>
-      <Menu>{nav ? 
-        <IconAiOutlineClose size={25} onClick={handleClick} /> 
-        : 
-        <IconAiOutlineMenu size={25} onClick={handleClick} />
-      }
-      </Menu>
+    <Container>
+      <ScrollProgressMotion style={{ scaleX: scrollYProgress }}></ScrollProgressMotion>
+      <Menu>{nav ? <IconAiOutlineClose size={25} onClick={handleClick}  /> : <IconAiOutlineMenu size={25} onClick={handleClick} />}</Menu>
       <Logo>
         <Image src="logo.avif" alt="" />
       </Logo>
       <Nav>
-        <Wrapper1>
-        <FirstNav>
-          {NavLinks[0].map((item, key) => {
-            return <LinkItem key={key}>{item.link}</LinkItem>;
-          })}
-        </FirstNav>
-      </Wrapper1>
+        <NavWrapper>
+          <Wrapper1>
+            <FirstNav>
+              {NavLinks[0].map((item, key) => {
+                return <LinkItem key={key}>{item.link}</LinkItem>;
+              })}
+            </FirstNav>
+          </Wrapper1>
 
-        <Wrapper2>
-          <SecondNav>
-            {NavLinks[1].map((item, key) => {
-              return (
-                <LinkItem key={key} style={{ marginLeft: "3rem" }}>
-                  {item.link}
-                </LinkItem>
-              );
-            })}
-          </SecondNav>
+          <Wrapper2>
+            <SecondNav>
+              {NavLinks[1].map((item, key) => {
+                return <LinkItem key={key}>{item.link}</LinkItem>;
+              })}
+            </SecondNav>
 
-          <ThirdNav>
-            <IconOne style={{ marginLeft: "1rem" }} size={25} />
-            <IconTwo style={{ marginLeft: "1rem" }} size={25} />
-            <IconThree style={{ marginLeft: "1rem" }} size={25} />
-          </ThirdNav>
-        </Wrapper2>
+            <ThirdNav>
+              <AiOutlineSearch size={25} />
+              <BsFillBasketFill size={25} />
+              <AiOutlineUser size={25} />
+            </ThirdNav>
+          </Wrapper2>
+        </NavWrapper>
       </Nav>
 
       <NavContainerSm $nav={nav}>
         <ContainerSm>
           {NavLinks[0].map((item, key) => {
             return (
-              <LinkItem onClick={handleClick} key={key} style={{ marginBottom: "3rem", fontSize: "1.4rem" }}>
+              <LinkItem onClick={handleClick} key={key}>
                 {item.link}
               </LinkItem>
             );
@@ -73,7 +64,7 @@ const Navbar = ({ NavLinks,nav,setNav }) => {
 
           {NavLinks[1].map((item, key) => {
             return (
-              <LinkItem onClick={handleClick} key={key} style={{ marginBottom: "3rem", fontSize: "1.4rem" }}>
+              <LinkItem onClick={handleClick} key={key}>
                 {item.link}
               </LinkItem>
             );
@@ -92,14 +83,13 @@ const Container = styled.div`
   position: relative;
 `;
 
-
 const ScrollProgressMotion = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
   height: 4px;
   width: 100%;
-  background: linear-gradient(45deg,red,orange);
+  background: linear-gradient(45deg, red, orange);
   transform-origin: left;
   z-index: 100;
 `;
@@ -111,11 +101,16 @@ const Nav = styled.nav`
   justify-content: center;
   margin: auto;
 `;
+const NavWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 10rem;
+`;
 const Menu = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 2rem;
+  left: 1rem;
   z-index: 40;
   @media screen and (min-width: 846px) {
     display: none;
@@ -132,16 +127,15 @@ const Image = styled.img`
   width: 10rem;
   object-fit: cover;
   transition: all ease-out 0.3s;
-  @media screen and (max-width : 290px) {
-    width: 7rem ;
+  @media screen and (max-width: 290px) {
+    width: 7rem;
   }
-  @media screen and (max-width : 220px) {
-    width: 5rem ;
+  @media screen and (max-width: 220px) {
+    width: 5rem;
   }
 `;
 
 const Wrapper1 = styled.div`
-  margin-left: 5rem;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -151,7 +145,6 @@ const Wrapper1 = styled.div`
   }
 `;
 const Wrapper2 = styled.div`
-  margin-left: 5rem;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -161,14 +154,13 @@ const Wrapper2 = styled.div`
   }
 `;
 const FirstNav = styled.div`
-  margin-right: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  @media screen and (max-width: 846px) {
+  /* @media screen and (max-width: 846px) {
     display: none;
-  }
+  } */
 `;
 const SecondNav = styled.div`
   flex: 1;
@@ -182,7 +174,9 @@ const ThirdNav = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 `;
+
 const IconAiOutlineMenu = styled(AiOutlineMenu)`
   fill: #000;
   cursor: pointer;
@@ -198,7 +192,7 @@ const NavContainerSm = styled.div`
     position: fixed;
     top: 0;
     bottom: 0;
-    left: ${({ $nav }) => $nav ? 0 : "-100%"};
+    left: ${({ $nav }) => ($nav ? 0 : "-100%")};
     right: 0;
     width: 100%;
     height: 100%;
@@ -211,17 +205,17 @@ const ContainerSm = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  padding-top: 10rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #d5d5d5;
+  gap: 2rem;
 `;
 
 const LinkItem = styled(Link)`
   text-decoration: none;
   color: #000;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
@@ -229,33 +223,5 @@ const LinkItem = styled(Link)`
     color: #f07d00;
     text-decoration: underline;
     text-underline-offset: 4px;
-  }
-`;
-
-const IconOne = styled(AiOutlineSearch)`
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-
-  &:hover {
-    fill: #f07d00;
-    transition: all 0.3s ease-in-out;
-  }
-`;
-const IconTwo = styled(AiOutlineUser)`
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-
-  &:hover {
-    fill: #f07d00;
-    transition: all 0.15s ease-in-out;
-  }
-`;
-
-const IconThree = styled(BsFillBasketFill)`
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  &:hover {
-    fill: #f07d00;
-    transition: all 0.15s ease-in-out;
   }
 `;
